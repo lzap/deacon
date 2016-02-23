@@ -33,7 +33,12 @@ for how to install Foreman plugins
 
 ## Usage
 
-Go to Global settings to select name generator type and create new host without name in order to have a generated name. When MAC-based generation is selected and the host does not have a primary address MAC filled in (e.g. when using virtualization), random name is generated as a fallback mechanism.
+Go to Global settings to select name generator type and create new host without name in order to have a generated name. Possible types:
+
+* OFF - The feature is turned off.
+* MAC+RANDOM - When a host does not have a primary address MAC filled in (e.g. when using virtualization), random name is generated as a fallback mechanism.
+* MAC - MAC only generation - hosts without primary MAC address won't get generated name.
+* RANDOM - Random only generation.
 
 ## Contributing
 
