@@ -1,5 +1,3 @@
-require 'deface'
-
 module ForemanNameGenerator
   class Engine < ::Rails::Engine
     engine_name 'foreman_name_generator'
@@ -9,7 +7,7 @@ module ForemanNameGenerator
     initializer 'foreman_name_generator.load_default_settings', :before => :load_config_initializers do |app|
       require_dependency File.expand_path("../../../app/models/setting/name_generator.rb", __FILE__) if (Setting.table_exists? rescue(false))
 
-      if Setting['name_generator_seed'] < 1 || Setting['name_generator_register'] < 1
+      if (Setting['name_generator_seed'] && Setting['name_generator_seed'] < 1) || (Setting['name_generator_register'] && Setting['name_generator_register'] < 1)
         initial = ForemanNameGenerator::RandomGenerator.random_initial_seed
         Rails.logger.info "Name Generator initialized seed to #{initial}"
         Setting['name_generator_seed'] = initial
