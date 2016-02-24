@@ -16,73 +16,73 @@ class RandomGeneratorTest < ActiveSupport::TestCase
 
   test 'generates a deterministic sequence' do
     expected = [
-      [0x1000000, 'DORIS', 'RUFENACHT'],
-      [0x17fffff, 'EILEEN', 'HYRE'],
-      [0x0017fff, 'LLOYD', 'ISKRA'],
-      [0x000bfff, 'COREY', 'ANTONETTY'],
-      [0x100000b, 'DORIS', 'COSTINE'],
-      [0x0800005, 'RAMON', 'PALL'],
-      [0x0400002, 'DWAYNE', 'VERVILLE'],
-      [0x0200000, 'PHILIP', 'RUFENACHT'],
-      [0x10fffff, 'LINDA', 'HYRE'],
-      [0x0087fff, 'CLINTON', 'ISKRA'],
-      [0x0043fff, 'GABRIEL', 'DOLBERRY'],
-      [0x0021fff, 'JAVIER', 'CANTWELL'],
-      [0x0010fff, 'LLOYD', 'GRAMLING'],
-      [0x00087ff, 'COREY', 'MENDIOLA'],
-      [0x1000043, 'DORIS', 'JAHDE'],
-      [0x1800021, 'CAROLYN', 'HELSER'],
-      [0x1c00010, 'NICOLE', 'RINGEISEN'],
-      [0x1e00007, 'TONYA', 'SHEPARDSON'],
-      [0x1f00003, 'SHARON', 'AHN'],
-      [0x1f80001, 'RITA', 'KLEMAN'],
-      [0x1fc0000, 'BARBARA', 'RUFENACHT'],
-      [0x1fdffff, 'LAURA', 'HYRE'],
-      [0x07f7fff, 'JOSEPH', 'ISKRA'],
-      [0x03fbfff, 'ALVIN', 'ANTONETTY'],
-      [0x01fdfff, 'TODD', 'SCHIFFELBEIN'],
-      [0x00fefff, 'TROY', 'LUECHTEFELD'],
-      [0x007f7ff, 'GENE', 'VENABLE'],
-      [0x003fbff, 'DEREK', 'RAFANIELLO'],
-      [0x001fdff, 'LLOYD', 'ALBARRAN'],
-      [0x000feff, 'COREY', 'NAJI'],
-      [0x10003fb, 'DORIS', 'CAMFERDAM'],
-      [0x08001fd, 'RAMON', 'SUGHROUE'],
-      [0x14000fe, 'ELLEN', 'MERIWETHER'],
-      [0x0a0007e, 'MICHEAL', 'RENNELS'],
-      [0x050003e, 'ERIC', 'SCHOPP'],
-      [0x028001e, 'ROGER', 'SCHOFELL'],
-      [0x014000e, 'GREG', 'RARDON'],
-      [0x00a0006, 'GLEN', 'ERKELA'],
-      [0x1050002, 'LUCILLE', 'VERVILLE'],
-      [0x0828000, 'BENJAMIN', 'SHARTRAND'],
-      [0x1413fff, 'ASHLEY', 'DOLBERRY'],
-      [0x0a09fff, 'MICHEAL', 'HULEN'],
-      [0x0504fff, 'ERIC', 'PROWELL'],
-      [0x02827ff, 'ROGER', 'LOGEMANN'],
-      [0x01413ff, 'GREG', 'TOBIASSEN'],
-      [0x00a09ff, 'GLEN', 'MOGAVERO'],
-      [0x00504ff, 'JIM', 'SAUR'],
-      [0x002827f, 'JAVIER', 'FALKENBERG'],
-      [0x001413f, 'LLOYD', 'KOLLER'],
-      [0x000a09f, 'COREY', 'WORK'],
+      [0x1000000, 'VELMA', 'PRATICO'],
+      [0x17fffff, 'ANGIE', 'WARMBROD'],
+      [0x0017fff, 'GRANT', 'GOODGINE'],
+      [0x000bfff, 'ALTON', 'SIEBER'],
+      [0x100000b, 'VELMA', 'VANBEEK'],
+      [0x0800005, 'DON', 'OTERO'],
+      [0x0400002, 'SAM', 'HULAN'],
+      [0x0200000, 'AARON', 'PRATICO'],
+      [0x10fffff, 'SALLY', 'WARMBROD'],
+      [0x0087fff, 'TED', 'GOODGINE'],
+      [0x0043fff, 'CORY', 'THURSBY'],
+      [0x0021fff, 'GARRY', 'HANDREN'],
+      [0x0010fff, 'GRANT', 'STELMAN'],
+      [0x00087ff, 'ALTON', 'KAWSKI'],
+      [0x1000043, 'VELMA', 'MIRRA'],
+      [0x1800021, 'SUSAN', 'DARBY'],
+      [0x1c00010, 'MARIA', 'BOURDON'],
+      [0x1e00007, 'ANNIE', 'SCHMANDT'],
+      [0x1f00003, 'MAYRA', 'BURNAUGH'],
+      [0x1f80001, 'FAYE', 'ROMEO'],
+      [0x1fc0000, 'OPAL', 'PRATICO'],
+      [0x1fdffff, 'CLARA', 'WARMBROD'],
+      [0x07f7fff, 'DUANE', 'GOODGINE'],
+      [0x03fbfff, 'ERVIN', 'SIEBER'],
+      [0x01fdfff, 'ELDON', 'LEYUA'],
+      [0x00fefff, 'GARY', 'TRASHER'],
+      [0x007f7ff, 'BRET', 'ONDRICK'],
+      [0x003fbff, 'LANCE', 'BISTER'],
+      [0x001fdff, 'GRANT', 'KUZIEL'],
+      [0x000feff, 'ALTON', 'THOMPON'],
+      [0x10003fb, 'VELMA', 'SWILLE'],
+      [0x08001fd, 'DON', 'DEBRECHT'],
+      [0x14000fe, 'TARA', 'VAUGHNS'],
+      [0x0a0007e, 'HEATH', 'RUSHTON'],
+      [0x050003e, 'BRUCE', 'PHEONIX'],
+      [0x028001e, 'KURT', 'VEAZEY'],
+      [0x014000e, 'DEWEY', 'MOHSENI'],
+      [0x00a0006, 'ELI', 'DEWEY'],
+      [0x1050002, 'ROSA', 'HULAN'],
+      [0x0828000, 'JESUS', 'PONTON'],
+      [0x1413fff, 'MABEL', 'THURSBY'],
+      [0x0a09fff, 'HEATH', 'ZEHNDER'],
+      [0x0504fff, 'BRUCE', 'BARTOLO'],
+      [0x02827ff, 'KURT', 'MCCLEE'],
+      [0x01413ff, 'DEWEY', 'PASKELL'],
+      [0x00a09ff, 'ELI', 'HASFJORD'],
+      [0x00504ff, 'KARL', 'ANIBAL'],
+      [0x002827f, 'GARRY', 'SHALA'],
+      [0x001413f, 'GRANT', 'HIEBER'],
+      [0x000a09f, 'ALTON', 'PERIGO'],
     ]
     seq = []
     ix = 1
     (1..50).each do |_|
       ix, first, last = tuple = @generator.generate(ix)
-      #puts "[0x#{ix.to_s(16)}, '#{first}', '#{last}'],"
+      #puts "[0x#{sprintf("%07x", ix)}, '#{first}', '#{last}'],"
       seq << tuple
     end
     assert_equal expected, seq
   end
 
   test 'generates a name for the initial round' do
-    assert_equal [16777216, "DORIS", "RUFENACHT"], @generator.generate(1)
+    assert_equal [16777216, "VELMA", "PRATICO"], @generator.generate(1)
   end
 
   test 'generates a name for the last round' do
-    assert_equal [32766, "COREY", "MAGNI"], @generator.generate((2**25) - 2)
+    assert_equal [32766, "ALTON", "MCCORY"], @generator.generate((2**25) - 2)
   end
 
   test 'generates a name for each value in a sequence' do

@@ -4,6 +4,8 @@ module ForemanNameGenerator
     GIVEN_MALE_NAMES_FILE = 'gmnames.txt'
     GIVEN_FEMALE_NAMES_FILE = 'gfnames.txt'
     SURNAMES_FILE = 'srnames.txt'
+    RECORD_LENGTH_GIVEN = 6
+    RECORD_LENGTH_SURNAME = 9
 
     def initialize(data_dir = DEFAULT_DATA_DIR)
       @data_dir = data_dir
@@ -15,9 +17,9 @@ module ForemanNameGenerator
       File.join(@data_dir, filename)
     end
 
-    def find_name(index, filename)
+    def find_name(index, filename, length)
       File.open(filename, 'r') do |f|
-        f.seek(index * 15)
+        f.seek(index * length)
         f.readline.chomp.strip
       end
     rescue Exception => e

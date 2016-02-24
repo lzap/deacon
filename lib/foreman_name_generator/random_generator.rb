@@ -23,8 +23,8 @@ module ForemanNameGenerator
       given_file = (index & 0x1000000) == 0 ? GIVEN_MALE_NAMES_FILE : GIVEN_FEMALE_NAMES_FILE
       givenname_ix = (index & 0xff0000) >> 16
       surnname_ix = index & 0xffff
-      firstname = find_name(givenname_ix, data_file(given_file))
-      surname = find_name(surnname_ix, data_file(SURNAMES_FILE))
+      firstname = find_name(givenname_ix, data_file(given_file), RECORD_LENGTH_GIVEN)
+      surname = find_name(surnname_ix, data_file(SURNAMES_FILE), RECORD_LENGTH_SURNAME)
       [index, firstname, surname]
     end
 

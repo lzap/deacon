@@ -7,10 +7,10 @@ module ForemanNameGenerator
       bytes = mac_to_bytes(mac)
       shorts = mac_to_shorts(mac)
       filename = (shorts[0] & 0x1) == 0 ? GIVEN_MALE_NAMES_FILE : GIVEN_FEMALE_NAMES_FILE
-      firstname1 = find_name(bytes[2], data_file(filename))
-      firstname2 = find_name(bytes[3], data_file(filename))
-      surname1 = find_name(shorts[0], data_file(SURNAMES_FILE))
-      surname2 = find_name(shorts[2], data_file(SURNAMES_FILE))
+      firstname1 = find_name(bytes[2], data_file(filename), RECORD_LENGTH_GIVEN)
+      firstname2 = find_name(bytes[3], data_file(filename), RECORD_LENGTH_GIVEN)
+      surname1 = find_name(shorts[0], data_file(SURNAMES_FILE), RECORD_LENGTH_SURNAME)
+      surname2 = find_name(shorts[2], data_file(SURNAMES_FILE), RECORD_LENGTH_SURNAME)
       [firstname2, firstname1, surname1, surname2]
     end
   end

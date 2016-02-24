@@ -8,19 +8,22 @@ from the 1990 US Census (public domain data):
 * 256 (8 bits) unique female given names
 * 65,536 (16 bits) unique surnames
 
+Given names were filtered to be 3-5 characters long, surnames 5-8 characters,
+therefore generated names are never longer than 14 characters (5+1+8).
+
 This gives 33,554,432 (25 bits) total of male and female name combinations.
 Built-in generator can either generate randomized succession, or generate
 combinations based on MAC adresses.
 
 Examples of MAC-based names:
 
-* 24:a4:3c:ec:76:06 -> floyd-marvin-tomasso-soran.my.lan
-* 24:a4:3c:e3:d3:92 -> antonio-marvin-tomasso-mottet.my.lan
+* 24:a4:3c:ec:76:06 -> bobby-louie-sancher-weeler.my.lan
+* 24:a4:3c:e3:d3:92 -> bob-louie-sancher-rimando.my.lan
 
 MAC addresses with same OID part (24:a4:3c in this case) generates the same
-middle name (MARVIN TOMASSO in the example above), therefore it is possible to
+middle name ("Louie Sancher" in the example above), therefore it is possible to
 guess server (or NIC) vendor from it, or it should be possible to shorten
-middle names (e.g. floyd-mt-soran.my.lan) in homogeneous environments.
+middle names (e.g. bobby-ls-weeler.my.lan) in homogeneous environments.
 
 The random name generator makes use of [Fibonacci linear feedback shift
 register](https://en.wikipedia.org/wiki/Linear_feedback_shift_register) which
@@ -31,12 +34,13 @@ about 33 million unique total names. During plugin installation, the register
 is seeded with a random value, so each installation gets unique sequence.
 Example sequence:
 
-* doris-rufenacht.my.lan
-* eileen-hyre.my.lan
-* lloyd-iskra.my.lan
-* corey-antonetty.my.lan
-* doris-costine.my.lan
-* ramon-pall.my.lan
+* velma-pratico.my.lan
+* angie-warmbrod.my.lan
+* grant-goodgine.my.lan
+* alton-sieber.my.lan
+* velma-vanbeek.my.lan
+* don-otero.my.lan
+* sam-hulan.my.lan
 
 The polynomial used in linear feedback shift register is x^25 + x^24 + x^23 + x^22 + 1.
 
