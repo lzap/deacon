@@ -40,6 +40,25 @@ Example sequence:
 
 The polynomial used in linear feedback shift register is x^25 + x^24 + x^23 + x^22 + 1.
 
+## Comparison of types
+
+MAC-based advantages
+
+* reprovisioning the same server generates the same name
+* middle names are same for unique hardware vendors
+
+MAC-based disadvantages
+
+* name is longer
+
+Random-based advantages
+
+* name is shorter
+
+Random-based disadvantages
+
+* reprovisioning the same server generates different name
+
 ## Installation
 
 See [How_to_Install_a_Plugin](http://projects.theforeman.org/projects/foreman/wiki/How_to_Install_a_Plugin)
