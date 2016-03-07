@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email       = ['lukas-x@zapletalovi.com']
   s.homepage    = 'https://github.com/lzap/deacon'
   s.summary     = 'Human readable random name generator'
-  s.description = 'Provides human readable name using continious LFSR'
+  s.description = 'Provides human readable names using continious LFSR'
 
   s.files = Dir['lib/**/*', 'data/*.txt', 'LICENSE', 'Rakefile', 'README.md']
   s.test_files = Dir['test/**/*']

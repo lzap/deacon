@@ -19,12 +19,10 @@ combinations based on MAC adresses.
 
 The random name generator makes use of [Fibonacci linear feedback shift
 register](https://en.wikipedia.org/wiki/Linear_feedback_shift_register) which
-gives deterministic sequence of pseudo-random numbers. Additionally, algorighm
+gives deterministic sequence of pseudo-random numbers. Additionally, algorithm
 makes sure names with same first name (or gender) and last name are not
 returned in succession. Since there are about 1% of such cases, there are
-about 33 million unique total names. During plugin installation, the register
-is seeded with a random value, so each installation gets unique sequence.
-Example sequence:
+about 33 million unique total names. Example sequence:
 
 * velma-pratico.my.lan
 * angie-warmbrod.my.lan
@@ -34,10 +32,13 @@ Example sequence:
 * don-otero.my.lan
 * sam-hulan.my.lan
 
-The polynomial used in linear feedback shift register is x^25 + x^24 + x^23 + x^22 + 1.
+The polynomial used in linear feedback shift register is
+
+	x^25 + x^24 + x^23 + x^22 + 1.
 
 The key thing is to store register (a number) and use it for each generation
-in order to get non-repeating sequence of name combinations.
+in order to get non-repeating sequence of name combinations. See an example
+below.
 
 ### MAC generator
 
