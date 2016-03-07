@@ -1,20 +1,20 @@
-require 'test_plugin_helper'
+require "test_helper"
 
-class RandomGeneratorTest < ActiveSupport::TestCase
+class RandomGeneratorTest < MiniTest::Unit::TestCase
   # number of test iterations for some tests
   TEST_ITERATIONS=10_000
 
-  setup do
+  def setup
     @dir = File.expand_path('../../../data', __FILE__)
-    @generator = ForemanNameGenerator::RandomGenerator.new(@dir)
+    @generator = Deacon::RandomGenerator.new(@dir)
     @random = rand((2 ** 25) - (TEST_ITERATIONS+3))
   end
 
-  test 'generates empty array for nil' do
+  def test_generates_empty_array_for_nil
     assert_equal [], @generator.generate(nil)
   end
 
-  test 'generates a deterministic sequence' do
+  def test_generates_a_deterministic_sequence
     expected = [
       [0x1000000, 'VELMA', 'PRATICO'],
       [0x17fffff, 'ANGIE', 'WARMBROD'],
@@ -77,21 +77,21 @@ class RandomGeneratorTest < ActiveSupport::TestCase
     assert_equal expected, seq
   end
 
-  test 'generates a name for the initial round' do
+  def test_generates_a_name_for_the_initial_round
     assert_equal [16777216, "VELMA", "PRATICO"], @generator.generate(1)
   end
 
-  test 'generates a name for the last round' do
+  def test_generates_a_name_for_the_last_round
     assert_equal [32766, "ALTON", "MCCORY"], @generator.generate((2**25) - 2)
   end
 
-  test 'generates a name for each value in a sequence' do
+  def test_generates_a_name_for_each_value_in_a_sequence
     @random.step(@random + TEST_ITERATIONS, 1) do |i|
       @generator.generate(i)
     end
   end
 
-  test 'generates non-repeating index sequence' do
+  def test_generates_non_repeating_index_sequence
     test_hash = {}
     ix = 1
     @random.step(@random + TEST_ITERATIONS, 1) do |i|
@@ -104,7 +104,7 @@ class RandomGeneratorTest < ActiveSupport::TestCase
     end
   end
 
-  test 'never generates two same names' do
+  def test_never_generates_two_same_names
     test_hash = {}
     ix = old_ix = 1
     @random.step(@random + TEST_ITERATIONS, 1) do |i|

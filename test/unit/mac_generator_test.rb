@@ -1,28 +1,28 @@
-require 'test_plugin_helper'
+require "test_helper"
 
-class MacGeneratorTest < ActiveSupport::TestCase
-  setup do
+class MacGeneratorTest < MiniTest::Unit::TestCase
+  def setup
     dir = File.expand_path('../../../data', __FILE__)
-    @generator = ForemanNameGenerator::MacGenerator.new(dir)
+    @generator = Deacon::MacGenerator.new(dir)
   end
 
-  test 'generates empty array for nil' do
+  def test_generates_empty_array_for_nil
     assert_equal [], @generator.generate(nil)
   end
 
-  test 'generates empty array for empty string' do
+  def test_generates_empty_array_for_empty_string
     assert_equal [], @generator.generate("")
   end
 
-  test 'generates a male name' do
+  def test_generates_a_male_name
     assert_equal ["DEREK", "LEVI", "PRATICO", "CEDILLO"], @generator.generate("00:00:ca:fe:01:01")
   end
 
-  test 'generates a female name' do
+  def test_generates_a_female_name
     assert_equal ["KATHY", "ALTA", "ROMEO", "CEDILLO"], @generator.generate("00:01:ca:fe:01:01")
   end
 
-  test 'generates same middle names for single OID' do
+  def test_generates_same_middle_names_for_single_oid
     name1 = @generator.generate("24:a4:3c:ec:76:06")
     name2 = @generator.generate("24:a4:3c:e3:d3:92")
     #puts name1.inspect

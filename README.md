@@ -1,4 +1,4 @@
-# Foreman Name Generator
+# Deacon - human readable random name generator
 
 Out of ideas for incoming bare-metal host names in your cluster? This little
 gem is a way out! It contains frequently occurring given names and surnames
@@ -15,15 +15,7 @@ This gives 33,554,432 (25 bits) total of male and female name combinations.
 Built-in generator can either generate randomized succession, or generate
 combinations based on MAC adresses.
 
-Examples of MAC-based names:
-
-* 24:a4:3c:ec:76:06 -> bobby-louie-sancher-weeler.my.lan
-* 24:a4:3c:e3:d3:92 -> bob-louie-sancher-rimando.my.lan
-
-MAC addresses with same OID part (24:a4:3c in this case) generates the same
-middle name ("Louie Sancher" in the example above), therefore it is possible to
-guess server (or NIC) vendor from it, or it should be possible to shorten
-middle names (e.g. bobby-ls-weeler.my.lan) in homogeneous environments.
+### Random generator
 
 The random name generator makes use of [Fibonacci linear feedback shift
 register](https://en.wikipedia.org/wiki/Linear_feedback_shift_register) which
@@ -44,6 +36,21 @@ Example sequence:
 
 The polynomial used in linear feedback shift register is x^25 + x^24 + x^23 + x^22 + 1.
 
+The key thing is to store register (a number) and use it for each generation
+in order to get non-repeating sequence of name combinations.
+
+### MAC generator
+
+Examples of MAC-based names:
+
+* 24:a4:3c:ec:76:06 -> bobby-louie-sancher-weeler.my.lan
+* 24:a4:3c:e3:d3:92 -> bob-louie-sancher-rimando.my.lan
+
+MAC addresses with same OID part (24:a4:3c in this case) generates the same
+middle name ("Louie Sancher" in the example above), therefore it is possible to
+guess server (or NIC) vendor from it, or it should be possible to shorten
+middle names (e.g. bobby-ls-weeler.my.lan) in homogeneous environments.
+
 ## Comparison of types
 
 MAC-based advantages
@@ -63,20 +70,43 @@ Random-based disadvantages
 
 * reprovisioning the same server generates different name
 
-## Installation
-
-See [How_to_Install_a_Plugin](http://projects.theforeman.org/projects/foreman/wiki/How_to_Install_a_Plugin)
-for how to install Foreman plugins
-
 ## Usage
 
-Go to Global settings to select name generator type and create new host
-without name in order to have a generated name. Possible types:
+Random LFSR non-repeating generator example:
 
-* OFF - The feature is turned off.
-* MAC+RANDOM - When a host does not have a primary address MAC filled in (e.g. when using virtualization), random name is generated as a fallback mechanism.
-* MAC - MAC only generation - hosts without primary MAC address won't get generated name.
-* RANDOM - Random only generation.
+	require "deacon"
+	register = Deacon::RandomGenerator::random_initial_seed
+	generator = Deacon::RandomGenerator.new
+	(1..5).each do |_|
+	  # store the register in non-volatile memory (e.g. on disk)
+	  register, firstname, lastname = generator.generate(register)
+	  puts firstname + ' ' + lastname
+	end
+
+Example output:
+
+	LOREN SPAHN
+	JULIO GIMBEL
+	CORY SIBILIO
+	PATSY CUSSON
+	HUGH SHIMER
+
+Random LFSR generator example:
+
+	require "deacon"
+	generator = Deacon::RandomGenerator.new
+	(1..5).each do |_|
+	  # ignoring the register can lead to duplicities!
+	  _, firstname, lastname = generator.generate
+	  puts firstname + ' ' + lastname
+	end
+
+MAC generator example:
+
+	require "deacon"
+	generator = Deacon::MacGenerator.new
+	firstname, lastname = generator.generate("AA:BB:CC:DD:EE:FF")
+	puts firstname + ' ' + lastname
 
 ## Contributing
 

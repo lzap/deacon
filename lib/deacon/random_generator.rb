@@ -1,4 +1,4 @@
-module ForemanNameGenerator
+module Deacon
   class RandomGenerator < Generator
     MASK = 0x1ffffff
 

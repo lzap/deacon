@@ -1,4 +1,4 @@
-module ForemanNameGenerator
+module Deacon
   class MacGenerator < Generator
     def generate(mac, female = false)
       return [] if mac.nil? || mac.empty?

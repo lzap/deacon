@@ -1,4 +1,4 @@
-module ForemanNameGenerator
+module Deacon
   class Generator
     DEFAULT_DATA_DIR = File.expand_path('../../../data', __FILE__)
     GIVEN_MALE_NAMES_FILE = 'gmnames.txt'
