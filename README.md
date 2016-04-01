@@ -1,4 +1,4 @@
-# Deacon - human readable random name generator
+# [Deacon](https://rubygems.org/gems/deacon) - human readable random name generator
 
 Out of ideas for incoming bare-metal host names in your cluster? This little
 gem is a way out! It contains frequently occurring given names and surnames
