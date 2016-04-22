@@ -92,6 +92,11 @@ Example output:
 	PATSY CUSSON
 	HUGH SHIMER
 
+By default, same firstname or surname successions are removed. To avoid that
+behavior (e.g. in stateless applications where you can't store register), use
+
+	register, firstname, lastname = generator.generate(register, false)
+
 Random LFSR generator example:
 
 	require "deacon"

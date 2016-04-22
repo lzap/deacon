@@ -13,12 +13,12 @@ module Deacon
       i - 1
     end
 
-    def generate(seed = Time.now.utc.to_i)
+    def generate(seed = Time.now.utc.to_i, test_uniquess = true)
       return [] if seed.nil? || seed == 0
       index = seed
       loop do
         index = next_lfsr25(index)
-        break if unique?(seed, index)
+        break if !test_uniquess || unique?(seed, index)
       end
       given_file = (index & 0x1000000) == 0 ? GIVEN_MALE_NAMES_FILE : GIVEN_FEMALE_NAMES_FILE
       givenname_ix = (index & 0xff0000) >> 16
