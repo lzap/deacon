@@ -121,6 +121,9 @@ Fork and send a Pull Request. Thanks!
 
 ## Copyright
 
+Contains given names and surnames from the 1990 US Census which is PUBLIC
+DOMAIN. The code is GNU GPL-3.0.
+
 Copyright (c) 2016 Lukas Zapletal
 
 This program is free software: you can redistribute it and/or modify
