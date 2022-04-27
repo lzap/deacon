@@ -1,15 +1,17 @@
 PATH
   remote: .
   specs:
-    deacon (0.0.3)
+    deacon (1.0.0)
 
 GEM
   remote: http://rubygems.org/
   specs:
-    json (1.8.3)
-    rake (10.5.0)
-    rdoc (4.2.2)
-      json (~> 1.4)
+    psych (4.0.3)
+      stringio
+    rake (13.0.6)
+    rdoc (6.4.0)
+      psych (>= 4.0.0)
+    stringio (3.0.1)
 
 PLATFORMS
   ruby
@@ -20,4 +22,4 @@ DEPENDENCIES
   rdoc
 
 BUNDLED WITH
-   1.10.5
+   2.1.4
