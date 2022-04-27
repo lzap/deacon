@@ -7,6 +7,7 @@ from the 1990 US Census (public domain data):
 * 256 (8 bits) unique male given names
 * 256 (8 bits) unique female given names
 * 65,536 (16 bits) unique surnames
+* with over 120 gender-neutral given names
 
 Given names were filtered to be 3-5 characters long, surnames 5-8 characters,
 therefore generated names are never longer than 14 characters (5+1+8).
